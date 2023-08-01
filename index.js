@@ -21,7 +21,7 @@ const request = url => {
         .catch(err => reject(err));
     })
 }
-const xuly = async url => {
+const excute = async url => {
     const data = await request(url);
     const $ = cheerio.load(data, { decodeEntities: false });
     $("#mw-pages .mw-category-group").each((i, e) => {
@@ -39,7 +39,7 @@ const xuly = async url => {
 }
 function crawler(url){
     if(url !== ""){
-        xuly(url);
+        excute(url);
     }
     else{
         TuLay.create(crawled, function(err, res){
